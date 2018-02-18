@@ -1,4 +1,4 @@
-package rdm.qhacks.com.musicmatch.Model.DO;
+package rdm.qhacks.com.musicmatch.Model.DataObject;
 
 import java.io.File;
 
@@ -10,9 +10,8 @@ public class SongDO extends DataObject {
     private String filePath;
     private String songName;
 
-    public SongDO(String filePath){
+    public SongDO(String filePath) {
         this.filePath = filePath;
         this.songFile = new File(filePath);
-
     }
 }

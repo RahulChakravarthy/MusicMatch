@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import rdm.qhacks.com.musicmatch.Controllers.CallBack.JSONCallBack;
 import rdm.qhacks.com.musicmatch.Controllers.CallBack.StringCallBack;
+import rdm.qhacks.com.musicmatch.Model.Requests.MusicFetchRequest;
 import rdm.qhacks.com.musicmatch.Services.NetworkService;
 
 /**
@@ -23,7 +24,7 @@ public class RequestController extends BaseController {
     /**
      * @Method newGetRequest : Creates and stores a string get request
      * @param endPoint : String  url of where to fetch the request
-     * @param  stringCallBack : : callback function that gets executed when the response is returned
+     * @param  stringCallBack : callback function that gets executed when the response is returned
      */
     public synchronized String newStringGetRequest(final String endPoint, final StringCallBack stringCallBack) {
         final String identifier = UUID.randomUUID().toString(); //generate random UUID that represents tag for request
@@ -48,6 +49,17 @@ public class RequestController extends BaseController {
         return identifier;
     }
 
+    /**
+     * @Method newMusicPostRequest : Creates a music post request to hit the azure server with
+     * @param request : MusicFetchRequest
+     * @param <T> : Type T
+     * @return : String identifier for the request
+     */
+    public synchronized <T extends Object> String newMusicPostRequest(MusicFetchRequest<T> request){
+        final String identifier = UUID.randomUUID().toString(); //generate random UUID that represents tag for request
+        NetworkService.getNSInstance().addToRequestQueue(request);
+        return identifier;
+    }
     /**
      * @Method cancelRequestByIdentifier : cancels a request by a given identifier
      * @param identifier : String identifier

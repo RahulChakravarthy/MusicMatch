@@ -5,25 +5,14 @@
     android:id="@+id/MusicMatchLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
     tools:context="rdm.qhacks.com.musicmatch.Activities.MusicMatch">
 
     <TextView
         android:id="@+id/MusicMatchTitle"
-        android:layout_width="251dp"
-        android:layout_height="55dp"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/Results"
-        android:layout_width="250dp"
-        android:layout_height="360dp"
-        android:layout_marginEnd="142dp"
-        android:layout_marginStart="142dp"
-        android:layout_marginTop="180dp"
+        android:layout_width="262dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -31,23 +20,64 @@
     <Button
         android:id="@+id/FileFetchButton"
         android:layout_width="99dp"
-        android:layout_height="47dp"
+        android:layout_height="57dp"
+        android:text="@string/pick_songs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.301"
+        app:layout_constraintHorizontal_bias="0.298"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.226" />
+        app:layout_constraintVertical_bias="0.15" />
 
     <Button
-        android:id="@+id/FetchButton"
-        android:layout_width="97dp"
-        android:layout_height="50dp"
+        android:id="@+id/FetchMusicButton"
+        android:layout_width="99dp"
+        android:layout_height="56dp"
+        android:text="@string/find_songs"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.717"
+        app:layout_constraintHorizontal_bias="0.716"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.228" />
+        app:layout_constraintVertical_bias="0.15" />
+
+    <EditText
+        android:id="@+id/PlayListName"
+        android:layout_width="249dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="144dp"
+        android:background="#ffffff"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:hint="@string/playlist_title"
+        android:textColor="#000000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/Results"
+        android:layout_width="250dp"
+        android:layout_height="292dp"
+        android:layout_marginEnd="142dp"
+        android:layout_marginStart="142dp"
+        android:layout_marginTop="196dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <Button
+        android:id="@+id/Settings"
+        android:layout_width="99dp"
+        android:layout_height="56dp"
+        android:text="@string/settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.969" />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,10 +1,11 @@
 package rdm.qhacks.com.musicmatch.View;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import java.util.stream.IntStream;
 
 import rdm.qhacks.com.musicmatch.R;
 
@@ -15,6 +16,12 @@ public class MusicMatchView extends ParentView {
     public MusicMatchView(ViewGroup viewGroup, Context context){
         this.viewGroup = viewGroup;
         this.context = context;
+
+        //Set up HashMap to hold all views pertaining to this activity
+        final int childCount = this.viewGroup.getChildCount();
+        IntStream.range(0, childCount).forEachOrdered(n -> {
+            this.activityViews.put(this.context.getResources().getResourceEntryName(this.viewGroup.getChildAt(n).getId()), this.viewGroup.getChildAt(n));
+        });
     }
 
     /**
@@ -23,20 +30,20 @@ public class MusicMatchView extends ParentView {
      */
     @Override
     public void setupLayout() {
-        //Set background colour
-        this.viewGroup.setBackgroundColor(Color.parseColor(activityBackGroundColor));
+        //Set backgound image
+        this.viewGroup.setBackground(this.viewGroup.getResources().getDrawable(R.drawable.background, this.context.getTheme()));
 
         //Set title attributes
-        TextView title = this.viewGroup.findViewById(R.id.MusicMatchTitle);
+        TextView title = (TextView) this.activityViews.get("MusicMatchTitle");
         title.setText(this.context.getString(R.string.app_name));
         title.setTextSize(TypedValue.COMPLEX_UNIT_PX, 135);
 
+        this.activityViews.get("PlayListName").setAlpha(0.70f);
+        this.activityViews.get("Settings").setAlpha(0.70f);
+        this.activityViews.get("FileFetchButton").setAlpha(0.70f);
+        this.activityViews.get("FetchMusicButton").setAlpha(0.70f);
+
         //Setup Recycler View
-    }
-
-    public void accessFiles(){
 
     }
-
-
 }

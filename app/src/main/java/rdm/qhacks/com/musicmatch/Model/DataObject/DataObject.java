@@ -1,4 +1,4 @@
-package rdm.qhacks.com.musicmatch.Model.DO;
+package rdm.qhacks.com.musicmatch.Model.DataObject;
 
 /**
  * All android custom models extend from the DataObject super class

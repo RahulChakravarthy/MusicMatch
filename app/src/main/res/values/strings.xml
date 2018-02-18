@@ -1,5 +1,9 @@
 <resources>
-    <string name="app_name">MusicMatch</string>
+    <string name="app_name">Music Match</string>
+    <string name="settings">Settings</string>
+    <string name="pick_songs">Pick Songs</string>
+    <string name="find_songs">Find Songs</string>
+    <string name="playlist_title">Playlist Title</string>
     <string-array name="sample_list">
         <item>Morphing Button - Icon</item>
         <item>Morphing Button - Icon &amp; Text</item>
