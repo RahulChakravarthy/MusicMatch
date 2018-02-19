@@ -2,6 +2,7 @@ package rdm.qhacks.com.musicmatch.View;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -32,9 +33,12 @@ public class MusicMatchView extends ParentView {
         this.viewGroup.setBackground(this.viewGroup.getResources().getDrawable(R.drawable.background, this.context.getTheme()));
 
         //Set title attributes
+        Typeface font = Typeface.createFromAsset(this.context.getAssets(), "fonts/" + "OpenSans-Bold" + ".ttf");
         TextView title = (TextView) this.activityViews.get("MusicMatchTitle");
         title.setText(this.context.getString(R.string.app_name));
-        title.setTextSize(TypedValue.COMPLEX_UNIT_PX, 135);
+        title.setTextSize(TypedValue.COMPLEX_UNIT_PX, 123);
+        title.setTypeface(font);
+
 
         this.activityViews.get("PlayListName").setAlpha(0.70f);
         this.activityViews.get("Settings").setAlpha(0.70f);
