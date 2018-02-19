@@ -1,17 +1,17 @@
 package rdm.qhacks.com.musicmatch.View;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import java.util.stream.IntStream;
 
+import rdm.qhacks.com.musicmatch.Activities.Settings;
 import rdm.qhacks.com.musicmatch.R;
 
 public class MusicMatchView extends ParentView {
-
-    private final String activityBackGroundColor = "#66ccff";
 
     public MusicMatchView(ViewGroup viewGroup, Context context){
         this.viewGroup = viewGroup;
@@ -19,9 +19,7 @@ public class MusicMatchView extends ParentView {
 
         //Set up HashMap to hold all views pertaining to this activity
         final int childCount = this.viewGroup.getChildCount();
-        IntStream.range(0, childCount).forEachOrdered(n -> {
-            this.activityViews.put(this.context.getResources().getResourceEntryName(this.viewGroup.getChildAt(n).getId()), this.viewGroup.getChildAt(n));
-        });
+        IntStream.range(0, childCount).forEachOrdered(n -> this.activityViews.put(this.context.getResources().getResourceEntryName(this.viewGroup.getChildAt(n).getId()), this.viewGroup.getChildAt(n)));
     }
 
     /**
@@ -42,6 +40,9 @@ public class MusicMatchView extends ParentView {
         this.activityViews.get("Settings").setAlpha(0.70f);
         this.activityViews.get("FileFetchButton").setAlpha(0.70f);
         this.activityViews.get("FetchMusicButton").setAlpha(0.70f);
+
+        // Set up settings button
+        this.activityViews.get("Settings").setOnClickListener(view -> this.context.startActivity(new Intent(context, Settings.class)));
 
         //Setup Recycler View
 

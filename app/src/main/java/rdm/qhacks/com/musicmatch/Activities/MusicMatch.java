@@ -8,7 +8,6 @@ import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.ActivityCompat;
 import android.view.Window;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -83,7 +82,6 @@ public class MusicMatch extends BaseActivity {
         ConstraintLayout activityLayout = findViewById(R.id.MusicMatchLayout);
         this.musicMatchView = new MusicMatchView(activityLayout, getApplicationContext());
         this.musicMatchView.setupLayout();
-        sampleRetrieve();
         accessFiles();
     }
 
@@ -96,10 +94,6 @@ public class MusicMatch extends BaseActivity {
     }
 
     /* Business Logic Here*/
-    protected void sampleRetrieve(){
-        this.musicMatchView.getViewByName("FetchMusicButton").setOnClickListener(View ->
-                this.musicMatchController.sendFetchAndGetStringResponse(((TextView) this.musicMatchView.getViewByName("Results"))::setText));
-    }
 
     /**
      * Set up file fetch button

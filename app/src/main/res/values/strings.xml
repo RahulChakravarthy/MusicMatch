@@ -4,6 +4,7 @@
     <string name="pick_songs">Pick Songs</string>
     <string name="find_songs">Find Songs</string>
     <string name="playlist_title">Playlist Title</string>
+    <string name="settings_title">Settings</string>
     <string-array name="sample_list">
         <item>Morphing Button - Icon</item>
         <item>Morphing Button - Icon &amp; Text</item>
