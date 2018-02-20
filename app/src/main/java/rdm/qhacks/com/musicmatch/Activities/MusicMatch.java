@@ -14,6 +14,7 @@ import java.io.File;
 
 import rdm.qhacks.com.musicmatch.Controllers.MediaFileVerifierController;
 import rdm.qhacks.com.musicmatch.Controllers.MusicMatchController;
+import rdm.qhacks.com.musicmatch.Model.DataObject.SongDO;
 import rdm.qhacks.com.musicmatch.R;
 import rdm.qhacks.com.musicmatch.Services.NetworkService;
 import rdm.qhacks.com.musicmatch.Utility.FileManagerUtils;
@@ -116,6 +117,9 @@ public class MusicMatch extends BaseActivity {
                     File songFile = new File(FileManagerUtils.getPath(this, data.getData()));
                     if (!MediaFileVerifierController.isFileValid(songFile)){
                         Toast.makeText(MusicMatch.this,"This file is not the correct file format", Toast.LENGTH_LONG).show();
+                    } else {
+                        this.musicMatchController.addSongtoInputPlaylist(new SongDO(songFile.getAbsolutePath())); //Add song to list
+                        //Update recyclerview with new inputted song
                     }
 
                 } catch (NullPointerException e){
@@ -124,4 +128,5 @@ public class MusicMatch extends BaseActivity {
                 break;
         }
     }
+
 }

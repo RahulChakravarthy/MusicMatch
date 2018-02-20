@@ -13,4 +13,6 @@ public class InputPlaylistDO extends PlaylistDO {
     public InputPlaylistDO(ArrayList<SongDO> setOfSongs, String title) {
         super(setOfSongs, title);
     }
+
+    public InputPlaylistDO(){}
 }

@@ -17,6 +17,9 @@ public class PlaylistDO extends DataObject {
         this.setOfSongs = setOfSongs;
         this.title = title;
     }
+    public PlaylistDO(){
+        this.title = "";
+    }
 
     public void addSong(SongDO songDO){
         this.setOfSongs.add(songDO);
