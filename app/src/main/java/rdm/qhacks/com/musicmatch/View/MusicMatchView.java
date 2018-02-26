@@ -3,6 +3,7 @@ package rdm.qhacks.com.musicmatch.View;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -49,6 +50,7 @@ public class MusicMatchView extends ParentView {
         this.activityViews.get("Settings").setOnClickListener(view -> this.context.startActivity(new Intent(context, Settings.class)));
 
         //Setup Recycler View
+        RecyclerView recyclerView = new RecyclerView(this.context);
 
     }
 }

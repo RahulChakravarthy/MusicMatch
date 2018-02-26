@@ -36,6 +36,7 @@ public class MusicMatch extends BaseActivity {
         setupView(); //set up view
         initializeController(); //initialize activity controllers
         getAccessFilePermission(); //Request permissions
+
     }
 
     /**
@@ -84,6 +85,7 @@ public class MusicMatch extends BaseActivity {
         this.musicMatchView = new MusicMatchView(activityLayout, getApplicationContext());
         this.musicMatchView.setupLayout();
         accessFiles();
+        sendMusicToServer();
     }
 
     /**
@@ -127,6 +129,12 @@ public class MusicMatch extends BaseActivity {
                 }
                 break;
         }
+    }
+
+    protected void sendMusicToServer(){
+        this.musicMatchView.getViewByName("FetchMusicButton").setOnClickListener(view -> {
+            this.musicMatchController.sendPlaylistToServer();
+        });
     }
 
 }

@@ -1,5 +1,7 @@
 package rdm.qhacks.com.musicmatch.Model.DataObject;
 
+import org.apache.commons.io.FilenameUtils;
+
 import java.io.File;
 
 /**
@@ -10,35 +12,34 @@ public class SongDO extends DataObject {
     private String filePath;
     private String songName;
     private Long fileSize;
+    private String fileType;
 
     public SongDO(String filePath) {
         this.filePath = filePath;
         this.songFile = new File(filePath);
         this.songName = this.songFile.getName();
         this.fileSize = this.songFile.length();
+        this.fileType = FilenameUtils.getExtension(this.songFile.getAbsolutePath()).toLowerCase();
     }
 
     public String getFilePath() {
         return filePath;
     }
 
-    public void setFilePath(String filePath) {
-        this.filePath = filePath;
-    }
-
     public String getSongName() {
         return songName;
-    }
-
-    public void setSongName(String songName) {
-        this.songName = songName;
     }
 
     public Long getFileSize() {
         return fileSize;
     }
 
-    public void setFileSize(Long fileSize) {
-        this.fileSize = fileSize;
+
+    public String getFileType() {
+        return fileType;
+    }
+
+    public File getSongFile(){
+        return this.songFile;
     }
 }

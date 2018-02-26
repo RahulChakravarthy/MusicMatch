@@ -9,7 +9,7 @@ import java.util.UUID;
 
 import rdm.qhacks.com.musicmatch.Controllers.CallBack.JSONCallBack;
 import rdm.qhacks.com.musicmatch.Controllers.CallBack.StringCallBack;
-import rdm.qhacks.com.musicmatch.Model.Requests.MusicFetchRequest;
+import rdm.qhacks.com.musicmatch.Model.Requests.MusicRequest;
 import rdm.qhacks.com.musicmatch.Services.NetworkService;
 
 /**
@@ -52,10 +52,9 @@ public class RequestController extends BaseController {
     /**
      * @Method newMusicPostRequest : Creates a music post request to hit the azure server with
      * @param request : MusicFetchRequest
-     * @param <T> : Type T
      * @return : String identifier for the request
      */
-    public synchronized <T extends Object> String newMusicPostRequest(MusicFetchRequest<T> request){
+    public synchronized String newMusicPostRequest(MusicRequest request){
         final String identifier = UUID.randomUUID().toString(); //generate random UUID that represents tag for request
         NetworkService.getNSInstance().addToRequestQueue(request);
         return identifier;
