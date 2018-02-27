@@ -1,9 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/InputSongDOItem">
 
+    <TextView
+        android:id="@+id/Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/RemoveButton" />
 
+    <ImageView
+        android:id="@+id/RemoveButton"
+        android:layout_width="@dimen/mb_height_56"
+        android:layout_height="@dimen/mb_height_56"
+        android:layout_alignBottom="@+id/Size"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="end" />
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/Size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/Title"
+        android:layout_toStartOf="@+id/RemoveButton" />
+
+</RelativeLayout>

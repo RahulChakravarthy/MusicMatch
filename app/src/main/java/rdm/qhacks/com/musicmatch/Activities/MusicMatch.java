@@ -3,6 +3,7 @@ package rdm.qhacks.com.musicmatch.Activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.constraint.ConstraintLayout;
@@ -19,11 +20,10 @@ import rdm.qhacks.com.musicmatch.R;
 import rdm.qhacks.com.musicmatch.Services.NetworkService;
 import rdm.qhacks.com.musicmatch.Utility.FileManagerUtils;
 import rdm.qhacks.com.musicmatch.View.MusicMatchView;
-import rdm.qhacks.com.musicmatch.View.ParentView;
 
 public class MusicMatch extends BaseActivity {
 
-    private ParentView musicMatchView; //View for this activity
+    private MusicMatchView musicMatchView; //View for this activity
     private MusicMatchController musicMatchController; //Controller for this activity
 
     @Override
@@ -104,8 +104,9 @@ public class MusicMatch extends BaseActivity {
     protected void accessFiles(){
         this.musicMatchView.getViewByName("FileFetchButton").setOnClickListener(view -> {
             Intent fileFetchIntent = new Intent();
-            fileFetchIntent.setType("*/*");
             fileFetchIntent.setAction(Intent.ACTION_GET_CONTENT);
+            fileFetchIntent.setType("*/*");
+            fileFetchIntent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
             startActivityForResult(fileFetchIntent, 7);
         });
     }
@@ -116,18 +117,35 @@ public class MusicMatch extends BaseActivity {
         switch (requestCode){
             case 7:
                 try{
-                    File songFile = new File(FileManagerUtils.getPath(this, data.getData()));
-                    if (!MediaFileVerifierController.isFileValid(songFile)){
-                        Toast.makeText(MusicMatch.this,"This file is not the correct file format", Toast.LENGTH_LONG).show();
+                    //Check if mData is not null (i.e only 1 song)
+                    if (data.getData() != null){
+                        processInputFile(data.getData());
                     } else {
-                        this.musicMatchController.addSongtoInputPlaylist(new SongDO(songFile.getAbsolutePath())); //Add song to list
-                        //Update recyclerview with new inputted song
+                        //multiple songs chosen
+                        for (int i = 0; i < data.getClipData().getItemCount(); i++){
+                            if (!processInputFile(data.getClipData().getItemAt(i).getUri())){
+                                break;
+                            }
+                        }
                     }
-
                 } catch (NullPointerException e){
                     //do nothing
                 }
                 break;
+        }
+    }
+
+    private boolean processInputFile(Uri dataUri){
+        //Process each file chosen
+        File songFile = new File(FileManagerUtils.getPath(this, dataUri));
+        if (!MediaFileVerifierController.isFileValid(songFile)){
+            Toast.makeText(MusicMatch.this,"File: " + songFile.getName() + " is not the correct file format", Toast.LENGTH_LONG).show();
+            return false;
+        } else {
+            this.musicMatchController.addSongtoInputPlaylist(new SongDO(songFile.getAbsolutePath())); //Add song to list
+            //Update recyclerview with new inputted song
+            this.musicMatchView.fillRecyclerViewInputList();
+            return true;
         }
     }
 

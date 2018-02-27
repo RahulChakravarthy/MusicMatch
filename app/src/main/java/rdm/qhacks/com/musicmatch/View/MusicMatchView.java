@@ -3,6 +3,7 @@ package rdm.qhacks.com.musicmatch.View;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
 import android.view.ViewGroup;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import java.util.stream.IntStream;
 
 import rdm.qhacks.com.musicmatch.Activities.Settings;
+import rdm.qhacks.com.musicmatch.Model.Adapters.InputPlaylistAdapter;
+import rdm.qhacks.com.musicmatch.Model.Adapters.ReturnPlaylistAdapater;
 import rdm.qhacks.com.musicmatch.R;
 
 public class MusicMatchView extends ParentView {
@@ -50,7 +53,19 @@ public class MusicMatchView extends ParentView {
         this.activityViews.get("Settings").setOnClickListener(view -> this.context.startActivity(new Intent(context, Settings.class)));
 
         //Setup Recycler View
-        RecyclerView recyclerView = new RecyclerView(this.context);
+        RecyclerView recyclerView = (RecyclerView) this.activityViews.get("Playlist");
+        RecyclerView.LayoutManager recylerViewLayoutManager = new LinearLayoutManager(context);
+        recyclerView.setLayoutManager(recylerViewLayoutManager);
 
+    }
+
+    public void fillRecyclerViewInputList(){
+        InputPlaylistAdapter inputPlaylistAdapter = new InputPlaylistAdapter();
+        ((RecyclerView)this.activityViews.get("Playlist")).setAdapter(inputPlaylistAdapter);
+    }
+
+    public void fillRecyclverViewOutputList(){
+        ReturnPlaylistAdapater returnPlaylistAdapater = new ReturnPlaylistAdapater();
+        ((RecyclerView)this.activityViews.get("Playlist")).setAdapter(returnPlaylistAdapater);
     }
 }

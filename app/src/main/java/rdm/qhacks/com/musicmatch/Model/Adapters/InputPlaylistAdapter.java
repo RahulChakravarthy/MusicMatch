@@ -27,6 +27,9 @@ public class InputPlaylistAdapter extends RecyclerView.Adapter<InputPlaylistAdap
         public InputSongDOViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
+            songName = itemView.findViewById(R.id.Title);
+            fileSize = itemView.findViewById(R.id.Size);
+            removeButton = itemView.findViewById(R.id.RemoveButton);
 
         }
         @Override
@@ -44,7 +47,7 @@ public class InputPlaylistAdapter extends RecyclerView.Adapter<InputPlaylistAdap
 
     @Override
     public InputSongDOViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View inflatedView = LayoutInflater.from(parent.getContext()).inflate(R.layout.input_playlist, parent, false);
+        View inflatedView = LayoutInflater.from(parent.getContext()).inflate(R.layout.input_song_item, parent, false);
         return new InputSongDOViewHolder(inflatedView);
     }
 
