@@ -1,4 +1,4 @@
-package rdm.qhacks.com.musicmatch.Model.DataObject;
+package rdm.qhacks.com.musicmatch.Model.DataObject.Music;
 
 
 import java.util.ArrayList;

@@ -1,8 +1,10 @@
-package rdm.qhacks.com.musicmatch.Model.DataObject;
+package rdm.qhacks.com.musicmatch.Model.DataObject.Music;
 
 import org.apache.commons.io.FilenameUtils;
 
 import java.io.File;
+
+import rdm.qhacks.com.musicmatch.Model.DataObject.DataObject;
 
 /**
  * This is the SongDO class which encapsulates all the fields relating to a song

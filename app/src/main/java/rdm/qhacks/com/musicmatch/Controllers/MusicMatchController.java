@@ -13,9 +13,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import rdm.qhacks.com.musicmatch.Controllers.CallBack.StringCallBack;
-import rdm.qhacks.com.musicmatch.Model.DataObject.InputPlaylistDO;
-import rdm.qhacks.com.musicmatch.Model.DataObject.PlaylistDO;
-import rdm.qhacks.com.musicmatch.Model.DataObject.SongDO;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Music.InputPlaylistDO;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Music.PlaylistDO;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Music.SongDO;
 import rdm.qhacks.com.musicmatch.Model.Requests.MusicRequest;
 
 /**

@@ -15,7 +15,7 @@ import java.io.File;
 
 import rdm.qhacks.com.musicmatch.Controllers.MediaFileVerifierController;
 import rdm.qhacks.com.musicmatch.Controllers.MusicMatchController;
-import rdm.qhacks.com.musicmatch.Model.DataObject.SongDO;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Music.SongDO;
 import rdm.qhacks.com.musicmatch.R;
 import rdm.qhacks.com.musicmatch.Services.NetworkService;
 import rdm.qhacks.com.musicmatch.Utility.FileManagerUtils;
@@ -150,9 +150,7 @@ public class MusicMatch extends BaseActivity {
     }
 
     protected void sendMusicToServer(){
-        this.musicMatchView.getViewByName("FetchMusicButton").setOnClickListener(view -> {
-            this.musicMatchController.sendPlaylistToServer();
-        });
+        this.musicMatchView.getViewByName("FetchMusicButton").setOnClickListener(view -> this.musicMatchController.sendPlaylistToServer());
     }
 
 }

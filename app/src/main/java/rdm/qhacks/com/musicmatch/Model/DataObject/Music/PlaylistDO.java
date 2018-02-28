@@ -1,8 +1,10 @@
-package rdm.qhacks.com.musicmatch.Model.DataObject;
+package rdm.qhacks.com.musicmatch.Model.DataObject.Music;
 
 
 import java.util.ArrayList;
 import java.util.List;
+
+import rdm.qhacks.com.musicmatch.Model.DataObject.DataObject;
 
 public class PlaylistDO extends DataObject {
 

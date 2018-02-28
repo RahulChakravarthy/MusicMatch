@@ -9,8 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import rdm.qhacks.com.musicmatch.Model.DataObject.InputPlaylistDO;
-import rdm.qhacks.com.musicmatch.Model.DataObject.SongDO;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Music.InputPlaylistDO;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Music.SongDO;
 import rdm.qhacks.com.musicmatch.R;
 
 public class InputPlaylistAdapter extends RecyclerView.Adapter<InputPlaylistAdapter.InputSongDOViewHolder> {
