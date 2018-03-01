@@ -1,5 +1,6 @@
 package rdm.qhacks.com.musicmatch.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.view.Window;
@@ -23,6 +24,15 @@ public class Settings extends BaseActivity {
         setupView();
         initializeController();
     }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        if (!this.retrieveUser()){
+            startActivity(new Intent(Settings.this, LoginActivity.class));
+        }
+    }
+
 
     @Override
     void setupView() {

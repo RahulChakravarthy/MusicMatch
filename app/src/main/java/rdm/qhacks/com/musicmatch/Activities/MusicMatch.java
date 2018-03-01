@@ -28,6 +28,7 @@ public class MusicMatch extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        setTheme(R.style.AppTheme);
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_music_match);
@@ -37,6 +38,14 @@ public class MusicMatch extends BaseActivity {
         initializeController(); //initialize activity controllers
         getAccessFilePermission(); //Request permissions
 
+    }
+
+    @Override
+    protected void onStart(){
+        super.onStart();
+        if (!this.retrieveUser()){
+            startActivity(new Intent(MusicMatch.this, LoginActivity.class));
+        }
     }
 
     /**
