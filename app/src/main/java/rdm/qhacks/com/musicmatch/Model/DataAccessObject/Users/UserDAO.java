@@ -7,7 +7,7 @@ import rdm.qhacks.com.musicmatch.Model.DataObject.Users.User;
 /**
  * Data access object for users in MusicMatch
  */
-public class UserDAO extends DAO{
+public class UserDAO extends DAO {
 
 
     /**
@@ -21,5 +21,10 @@ public class UserDAO extends DAO{
 
     public User getUserByFirstName(){
         return null;
+    }
+
+    public void addUser(User user){
+        String key = this.databaseReference.push().getKey();
+        this.databaseReference.child(key).setValue(user);
     }
 }

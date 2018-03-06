@@ -5,25 +5,25 @@
     android:id="@+id/InputSongDOItem">
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/input_song_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toStartOf="@+id/RemoveButton" />
+        android:layout_toStartOf="@+id/input_remove_button" />
 
     <ImageView
-        android:id="@+id/RemoveButton"
+        android:id="@+id/input_remove_button"
         android:layout_width="@dimen/mb_height_56"
         android:layout_height="@dimen/mb_height_56"
-        android:layout_alignBottom="@+id/Size"
+        android:layout_alignBottom="@+id/input_file_size"
         android:layout_alignParentEnd="true"
         android:layout_gravity="end" />
 
     <TextView
-        android:id="@+id/Size"
+        android:id="@+id/input_file_size"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Title"
-        android:layout_toStartOf="@+id/RemoveButton" />
+        android:layout_below="@+id/input_song_title"
+        android:layout_toStartOf="@+id/input_remove_button" />
 
 </RelativeLayout>

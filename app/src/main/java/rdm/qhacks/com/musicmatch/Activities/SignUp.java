@@ -26,7 +26,7 @@ public class SignUp extends BaseActivity {
     @Override
     public void setupView() {
         ConstraintLayout activityLayout = findViewById(R.id.signUp);
-        this.signUpView = new SignUpView();
+        this.signUpView = new SignUpView(activityLayout, getApplicationContext());
         this.signUpView.setupLayout();
     }
 
@@ -37,6 +37,8 @@ public class SignUp extends BaseActivity {
 
 
     public void signUp(){
-        this.signUpController.signUpUser("","");
+        this.signUpView.getViewByName("").setOnClickListener(view -> {
+            this.signUpController.signUpUser(this.signUpView.getViewByName("").toString(),this.signUpView.getViewByName("").toString());
+        });
     }
 }

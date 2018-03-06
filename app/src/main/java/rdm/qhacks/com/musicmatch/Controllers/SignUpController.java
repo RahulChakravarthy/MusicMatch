@@ -9,21 +9,24 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthException;
 
 import rdm.qhacks.com.musicmatch.Activities.MusicMatch;
+import rdm.qhacks.com.musicmatch.Model.DataAccessObject.Users.StandardUserDAO;
+import rdm.qhacks.com.musicmatch.Model.DataAccessObject.Users.UserDAO;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Users.StandardUser;
 
 public class SignUpController extends BaseController {
 
-    FirebaseAuth currentUser;
-    Context context;
+    private FirebaseAuth currentUser;
+    private Context context;
 
     public SignUpController(FirebaseAuth currentUser, Context context){
         this.currentUser = currentUser;
         this.context = context;
     }
 
-    public void signUpUser(String email, String password){
+    public void signUpUser(final String email, final String password, final String firstName, final String lastName){
        this.currentUser.createUserWithEmailAndPassword(email, password).addOnCompleteListener( task -> {
            if (task.isSuccessful()){
-               addUserToDatabase();
+               addUserToDatabase(email, firstName, lastName);
                emailVerifyUser();
                Toast.makeText(context, "User successfully registered", Toast.LENGTH_LONG).show();
                context.startActivity(new Intent(context, MusicMatch.class));
@@ -44,8 +47,11 @@ public class SignUpController extends BaseController {
     /**
      * @Method addUserToDatabase : adds a user to the User database
      */
-    private void addUserToDatabase() {
-        //add user based on what type they are (teacher or student)
+    private void addUserToDatabase(String email, String firstName, String lastName) {
+        //For now we will only deal with standard users
+        StandardUser standardUser = new StandardUser(firstName, lastName, email);
+        StandardUserDAO standardUserDAO = new StandardUserDAO();
+        standardUserDAO.addUser(standardUser);
 
     }
 

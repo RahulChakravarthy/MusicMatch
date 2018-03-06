@@ -5,6 +5,7 @@
     <string name="find_songs">Find Songs</string>
     <string name="playlist_title">Playlist Title</string>
     <string name="settings_title">Settings</string>
+    <string name="sign_up_title">Sign up</string>
     <string-array name="sample_list">
         <item>Morphing Button - Icon</item>
         <item>Morphing Button - Icon &amp; Text</item>

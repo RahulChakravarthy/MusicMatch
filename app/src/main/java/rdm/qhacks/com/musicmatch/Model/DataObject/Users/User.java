@@ -1,6 +1,7 @@
 package rdm.qhacks.com.musicmatch.Model.DataObject.Users;
 
 
+import rdm.qhacks.com.musicmatch.Model.DataAccessObject.Settings.Settings;
 import rdm.qhacks.com.musicmatch.Model.DataObject.DataObject;
 
 /**
@@ -13,6 +14,7 @@ public abstract class User extends DataObject {
     protected String lastName;
     protected String email;
     protected UserType userType;
+    protected Settings settings;
 
     /**
      *Getters and Setters for the user class
@@ -36,4 +38,8 @@ public abstract class User extends DataObject {
     public UserType getUserType(){return this.userType;}
 
     public void setUserType(UserType userType){ this.userType = userType;}
+
+    public Settings getSettings(){return this.settings;}
+
+    public void setSettings(Settings settings){this.settings = settings;}
 }

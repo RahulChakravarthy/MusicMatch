@@ -18,7 +18,7 @@ public class InputPlaylistAdapter extends RecyclerView.Adapter<InputPlaylistAdap
     private InputPlaylistDO inputPlaylistDO = new InputPlaylistDO();
 
     // Nested class to initialize the views of rows
-    static class InputSongDOViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class InputSongDOViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         TextView songName;
         TextView fileSize;
@@ -27,11 +27,12 @@ public class InputPlaylistAdapter extends RecyclerView.Adapter<InputPlaylistAdap
         public InputSongDOViewHolder(View itemView) {
             super(itemView);
             itemView.setOnClickListener(this);
-            songName = itemView.findViewById(R.id.Title);
-            fileSize = itemView.findViewById(R.id.Size);
-            removeButton = itemView.findViewById(R.id.RemoveButton);
+            songName = itemView.findViewById(R.id.input_song_title);
+            fileSize = itemView.findViewById(R.id.input_file_size);
+            removeButton = itemView.findViewById(R.id.input_remove_button);
 
         }
+
         @Override
         public void onClick(View view) {
             //do nothing

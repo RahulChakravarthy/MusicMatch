@@ -12,4 +12,6 @@ public class ReturnPlaylistDO extends PlaylistDO {
     public ReturnPlaylistDO(ArrayList<SongDO> setOfSongs, String title) {
         super(setOfSongs, title);
     }
+
+    public ReturnPlaylistDO(){}
 }

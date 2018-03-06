@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-</LinearLayout>
+    <TextView
+        android:id="@+id/return_song_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/return_remove_button" />
+
+    <ImageView
+        android:id="@+id/return_remove_button"
+        android:layout_width="@dimen/mb_height_56"
+        android:layout_height="@dimen/mb_height_56"
+        android:layout_alignBottom="@+id/return_file_size"
+        android:layout_alignParentEnd="true"
+        android:layout_gravity="end" />
+
+    <TextView
+        android:id="@+id/return_file_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/return_song_title"
+        android:layout_toStartOf="@+id/return_remove_button" />
+
+</RelativeLayout>
