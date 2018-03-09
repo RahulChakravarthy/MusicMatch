@@ -19,6 +19,9 @@
         <color name="holo_orange_light">#ffffbb33</color>
         <color name="holo_red_light">#ffff4444</color>
 
+        <color name="colorBlack">#000000</color>
+        <color name="colorWhite">#FFFFFF</color>
+
         <dimen name="mb_corner_radius_2">2dp</dimen>
         <dimen name="mb_corner_radius_4">4dp</dimen>
         <dimen name="mb_width_100">100dp</dimen>

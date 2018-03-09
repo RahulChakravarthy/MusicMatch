@@ -30,16 +30,16 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".Activities.Settings" />
+        <activity android:name=".Activities.LoginActivity" />
+        <activity android:name=".Activities.SignUp"/>
+
         <!-- Services -->
         <service
             android:name=".Services.NetworkService"
             android:enabled="true"
             android:stopWithTask="true"
             tools:ignore="InnerclassSeparator" />
-
-        <activity android:name=".Activities.Settings" />
-        <activity android:name=".Activities.LoginActivity" />
-        <activity android:name=".Activities.SignUp"></activity>
     </application>
 
 </manifest>

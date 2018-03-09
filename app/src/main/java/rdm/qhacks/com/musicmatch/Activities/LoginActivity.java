@@ -3,9 +3,14 @@ package rdm.qhacks.com.musicmatch.Activities;
 import android.os.Bundle;
 import android.view.Window;
 
+import rdm.qhacks.com.musicmatch.Controllers.LoginController;
 import rdm.qhacks.com.musicmatch.R;
+import rdm.qhacks.com.musicmatch.View.LoginView;
 
 public class LoginActivity extends BaseActivity {
+
+    private LoginView loginView;
+    private LoginController loginController;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,7 +21,7 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     void setupView() {
-
+        this.loginView = new LoginView();
     }
 
     @Override

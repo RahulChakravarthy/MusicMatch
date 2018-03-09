@@ -40,6 +40,7 @@ public class SignUpController extends BaseController {
 
     /**
      * @Method emailVerifyUser : sends and email to the user to verify their account
+     * @To-do implement this feature in the future
      */
     private void emailVerifyUser(){
     }
