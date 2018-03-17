@@ -38,7 +38,7 @@ public class SignUp extends BaseActivity {
 
 
     public void signUp(){
-        this.signUpView.getViewByName("").setOnClickListener(view ->
+        this.signUpView.getViewByName("create_account").setOnClickListener(view ->
             this.signUpController.signUpUser(
                     ((TextView)this.signUpView.getViewByName("")).getText().toString().trim(),
                     ((TextView) this.signUpView.getViewByName("")).getText().toString().trim(),

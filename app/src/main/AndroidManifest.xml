@@ -23,15 +23,15 @@
             android:windowSoftInputMode="adjustPan"
             android:theme="@style/SplashTheme"
             tools:ignore="InnerclassSeparator">
+        </activity>
+        <activity android:name=".Activities.Settings" />
+        <activity android:name=".Activities.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Activities.Settings" />
-        <activity android:name=".Activities.LoginActivity" />
         <activity android:name=".Activities.SignUp"/>
 
         <!-- Services -->
