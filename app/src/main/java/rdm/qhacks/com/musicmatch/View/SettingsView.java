@@ -24,9 +24,10 @@ public class SettingsView extends ParentView{
     @Override
     public void setupLayout() {
         this.viewGroup.setBackground(this.viewGroup.getResources().getDrawable(R.drawable.background, this.context.getTheme()));
+        setupSaveButton();
+        
+    }
 
-        TextView title = (TextView) this.activityViews.get("SettingsTitle");
-        title.setText(R.string.settings_title);
-        title.setTextSize(TypedValue.COMPLEX_UNIT_PX, 135);
+    private void setupSaveButton() {
     }
 }

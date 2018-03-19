@@ -8,8 +8,11 @@
     tools:context="rdm.qhacks.com.musicmatch.Activities.Settings">
 
     <TextView
-        android:layout_width="247dp"
-        android:layout_height="55dp"
+        android:textSize="50sp"
+        android:textColor="@color/colorBlack"
+        android:text="@string/settings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:id="@+id/SettingsTitle"
         android:ellipsize="start"
         android:gravity="center"
@@ -31,6 +34,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.16" />
+
+    <TextView
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:text="@string/the_max_amount_of_time_you_want_music_match_to_process_your_songs"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.227" />
 
     <Spinner
         android:layout_width="wrap_content"
@@ -64,6 +81,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.428" />
 
+    <TextView
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="start"
+        android:gravity="center"
+        android:text="How close you want your selection to match with the result"
+        android:textColor="@color/colorBlack"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <SeekBar
         android:id="@+id/seekBar"
         android:layout_width="296dp"
@@ -78,7 +108,7 @@
         android:id="@+id/checkBox"
         android:layout_width="295dp"
         android:layout_height="wrap_content"
-        android:text="Explicit Music Lyrics"
+        android:text="@string/explicit_music_lyrics"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
@@ -90,7 +120,7 @@
         android:id="@+id/checkBox2"
         android:layout_width="296dp"
         android:layout_height="wrap_content"
-        android:text="CheckBox"
+        android:text="@string/long_songs_10_min"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

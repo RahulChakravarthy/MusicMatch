@@ -5,12 +5,13 @@ import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.view.Window;
 
+import rdm.qhacks.com.musicmatch.Controllers.CallBack.ActivityCallBacks.SettingsCallBack;
 import rdm.qhacks.com.musicmatch.Controllers.SettingsController;
 import rdm.qhacks.com.musicmatch.R;
 import rdm.qhacks.com.musicmatch.View.ParentView;
 import rdm.qhacks.com.musicmatch.View.SettingsView;
 
-public class Settings extends BaseActivity {
+public class Settings extends BaseActivity implements SettingsCallBack{
 
     private ParentView settingsView; //View for this activity
     private SettingsController settingsController; //Controller for this activity
@@ -44,5 +45,10 @@ public class Settings extends BaseActivity {
     @Override
     void initializeController() {
         this.settingsController = new SettingsController();
+    }
+
+    @Override
+    public void saveSettingsButton() {
+        this.settingsController.updateSettings();
     }
 }
