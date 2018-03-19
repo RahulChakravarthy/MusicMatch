@@ -102,7 +102,7 @@ public class MusicMatch extends BaseActivity {
      */
     @Override
     protected void initializeController() {
-        this.musicMatchController = new MusicMatchController();
+        this.musicMatchController = new MusicMatchController(null);
     }
 
     /* Business Logic Here*/

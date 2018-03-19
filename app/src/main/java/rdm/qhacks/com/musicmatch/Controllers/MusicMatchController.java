@@ -16,6 +16,8 @@ import rdm.qhacks.com.musicmatch.Controllers.CallBack.StringCallBack;
 import rdm.qhacks.com.musicmatch.Model.DataObject.Music.InputPlaylistDO;
 import rdm.qhacks.com.musicmatch.Model.DataObject.Music.PlaylistDO;
 import rdm.qhacks.com.musicmatch.Model.DataObject.Music.SongDO;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Users.StandardUser;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Users.User;
 import rdm.qhacks.com.musicmatch.Model.Requests.MusicRequest;
 
 /**
@@ -24,9 +26,11 @@ import rdm.qhacks.com.musicmatch.Model.Requests.MusicRequest;
 public class MusicMatchController extends BaseController {
 
     final private String WebRestEndpoint = "http://www.google.com";
-    private PlaylistDO playlistDO = new InputPlaylistDO();
+    private User user;
 
-    public MusicMatchController(){}
+    public MusicMatchController(User user){
+        this.user = user;
+    }
 
     /**
      * This method sends the appropriate request containing all the data to the Azure ML endpoint for processing
@@ -37,10 +41,10 @@ public class MusicMatchController extends BaseController {
     }
 
     /**
-     * This method sends a post request to the Microsoft Azure Servers along with the Music files to be parsed, utilizes custom request
+     * This method sends a post request to the Microsoft Azure Servers along with the Music Model meta data as JSON to be processed, utilizes custom request
      */
     public void sendPlaylistToServer(){
-        playlistDO.getSetOfSongs().forEach(songDO -> {
+        this.user.getPlaylistDO().getSetOfSongs().forEach(songDO -> {
             try {
                 //custom response listener
                 Response.Listener<NetworkResponse> responseListener = response -> {
@@ -64,10 +68,10 @@ public class MusicMatchController extends BaseController {
     }
 
     public void addSongtoInputPlaylist(SongDO songDO){
-        this.playlistDO.addSong(songDO);
+        this.user.getPlaylistDO().addSong(songDO);
     }
 
     public PlaylistDO getPlaylistDO(){
-        return this.playlistDO;
+        return this.user.getPlaylistDO();
     }
 }

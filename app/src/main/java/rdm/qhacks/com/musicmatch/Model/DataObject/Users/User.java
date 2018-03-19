@@ -3,6 +3,7 @@ package rdm.qhacks.com.musicmatch.Model.DataObject.Users;
 
 import rdm.qhacks.com.musicmatch.Model.DataAccessObject.Settings.Settings;
 import rdm.qhacks.com.musicmatch.Model.DataObject.DataObject;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Music.PlaylistDO;
 
 /**
  * User superclass
@@ -15,6 +16,7 @@ public abstract class User extends DataObject {
     protected String email;
     protected UserType userType;
     protected Settings settings;
+    protected PlaylistDO playlistDO;
 
     /**
      *Getters and Setters for the user class
@@ -42,4 +44,10 @@ public abstract class User extends DataObject {
     public Settings getSettings(){return this.settings;}
 
     public void setSettings(Settings settings){this.settings = settings;}
+
+    public PlaylistDO getPlaylistDO(){return this.playlistDO;}
+
+    public void setPlaylistDO(PlaylistDO playlistDO){this.playlistDO = playlistDO;}
+
+
 }

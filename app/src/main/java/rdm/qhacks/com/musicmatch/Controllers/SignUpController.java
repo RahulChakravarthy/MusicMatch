@@ -10,7 +10,6 @@ import com.google.firebase.auth.FirebaseAuthException;
 
 import rdm.qhacks.com.musicmatch.Activities.MusicMatch;
 import rdm.qhacks.com.musicmatch.Model.DataAccessObject.Users.StandardUserDAO;
-import rdm.qhacks.com.musicmatch.Model.DataAccessObject.Users.UserDAO;
 import rdm.qhacks.com.musicmatch.Model.DataObject.Users.StandardUser;
 
 public class SignUpController extends BaseController {
@@ -50,7 +49,7 @@ public class SignUpController extends BaseController {
      */
     private void addUserToDatabase(String email, String firstName, String lastName) {
         //For now we will only deal with standard users
-        StandardUser standardUser = new StandardUser(firstName, lastName, email);
+        StandardUser standardUser = new StandardUser(lastName, email, firstName, null);
         StandardUserDAO standardUserDAO = new StandardUserDAO();
         standardUserDAO.addUser(standardUser);
 
