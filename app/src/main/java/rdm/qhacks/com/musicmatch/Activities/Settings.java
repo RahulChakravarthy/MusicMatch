@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.view.Window;
+import android.widget.SeekBar;
 
 import rdm.qhacks.com.musicmatch.Controllers.CallBack.ActivityCallBacks.SettingsCallBack;
 import rdm.qhacks.com.musicmatch.Controllers.SettingsController;
@@ -15,6 +16,7 @@ public class Settings extends BaseActivity implements SettingsCallBack{
 
     private ParentView settingsView; //View for this activity
     private SettingsController settingsController; //Controller for this activity
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +51,13 @@ public class Settings extends BaseActivity implements SettingsCallBack{
 
     @Override
     public void saveSettingsButton() {
-        this.settingsController.updateSettings();
+        this.settingsView.getViewByName("settingsSaveSettingsButton").setOnClickListener(view ->{
+            //Get all the values
+            SeekBar algComplexity = (SeekBar) this.settingsView.getViewByName("seekBar");
+            //fetch the alg complexity level
+
+        });
+        this.settingsController.updateSettings(null);
     }
+
 }

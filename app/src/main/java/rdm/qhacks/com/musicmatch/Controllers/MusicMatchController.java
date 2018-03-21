@@ -26,6 +26,7 @@ import rdm.qhacks.com.musicmatch.Model.Requests.MusicRequest;
 public class MusicMatchController extends BaseController {
 
     final private String WebRestEndpoint = "http://www.google.com";
+    private MusicGController musicGController = new MusicGController();
     private User user;
 
     public MusicMatchController(User user){

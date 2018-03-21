@@ -17,6 +17,7 @@ public abstract class User extends DataObject {
     protected UserType userType;
     protected Settings settings;
     protected PlaylistDO playlistDO;
+    protected UserSettings userSettings;
 
     /**
      *Getters and Setters for the user class
@@ -49,5 +50,8 @@ public abstract class User extends DataObject {
 
     public void setPlaylistDO(PlaylistDO playlistDO){this.playlistDO = playlistDO;}
 
+    public UserSettings getUserSettings(){return this.userSettings;}
+
+    public void setUserSettings(UserSettings userSettings){this.userSettings = userSettings;}
 
 }
