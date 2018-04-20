@@ -12,6 +12,7 @@ import java.io.File;
 import java.util.Arrays;
 
 import rdm.qhacks.com.musicmatch.Model.DataObject.Music.MusicModel.BaseMusicModel;
+import rdm.qhacks.com.musicmatch.Model.DataObject.Music.MusicModel.ChordDO;
 import rdm.qhacks.com.musicmatch.Model.DataObject.Music.MusicModel.MusicModelDO;
 
 /**
@@ -51,6 +52,8 @@ public class MusicGController extends BaseController {
     }
 
     private JSONObject processAmplitudes(double[] amplitudes) throws JSONException {
+        ChordDO chordDO = new ChordDO();
+
         return new JSONObject("");
     }
 
